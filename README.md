@@ -17,5 +17,14 @@ A basic REST API application for social messenger.
 * Service: Classes to connect to all your favorite services and actually fetch the resources
 
 
+#### POST follows the format
+```json
+{
+    "author": "nikoo28",
+    "created": "2017-11-22T11:54:34.339Z[UTC]",
+    "message": "Posting a message"
+}
+```
+
 #### TODO:
 * Make it thread-safe
