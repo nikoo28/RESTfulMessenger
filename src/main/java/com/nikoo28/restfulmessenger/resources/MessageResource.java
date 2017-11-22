@@ -3,10 +3,7 @@ package com.nikoo28.restfulmessenger.resources;
 import com.nikoo28.restfulmessenger.model.Message;
 import com.nikoo28.restfulmessenger.service.MessageService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -40,6 +37,13 @@ public class MessageResource {
   @Produces(MediaType.APPLICATION_JSON)
   public Message getMessage(@PathParam("messageId") long messageId) {
     return messageService.getMessage(messageId);
+  }
+
+  @POST
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.APPLICATION_JSON)
+  public Message postMessage(Message message) {
+    return messageService.addMessage(message);
   }
 
 }
