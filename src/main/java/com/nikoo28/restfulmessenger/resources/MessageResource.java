@@ -22,7 +22,7 @@ public class MessageResource {
 
   @GET
   // Tells the response format
-  @Produces(MediaType.APPLICATION_XML)
+  @Produces(MediaType.APPLICATION_JSON)
   public List<Message> getMessage() {
     return messageService.getAllMessages();
   }
@@ -37,7 +37,7 @@ public class MessageResource {
 
   @GET
   @Path("/{messageId}")
-  @Produces(MediaType.APPLICATION_XML)
+  @Produces(MediaType.APPLICATION_JSON)
   public Message getMessage(@PathParam("messageId") long messageId) {
     return messageService.getMessage(messageId);
   }
