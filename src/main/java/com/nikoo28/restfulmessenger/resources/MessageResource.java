@@ -28,7 +28,7 @@ public class MessageResource {
   // Adding a subsequent path
   @Path("/test")
   @Produces(MediaType.TEXT_PLAIN)
-  public String tt(){
+  public String tt() {
     return "Test";
   }
 
@@ -44,6 +44,22 @@ public class MessageResource {
   @Consumes(MediaType.APPLICATION_JSON)
   public Message postMessage(Message message) {
     return messageService.addMessage(message);
+  }
+
+  @PUT
+  @Path("/{messageId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.APPLICATION_JSON)
+  public Message updateMessage(@PathParam("messageId") long messageId, Message message) {
+    message.setId(messageId);
+    return messageService.updateMessage(message);
+  }
+
+  @DELETE
+  @Path("/{messageId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public void updateMessage(@PathParam("messageId") long messageId) {
+    messageService.removeMessage(messageId);
   }
 
 }
