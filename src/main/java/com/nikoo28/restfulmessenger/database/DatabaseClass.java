@@ -14,10 +14,10 @@ import java.util.Map;
 // Is a JDBC or Hibernate class to connect to the the DB
 public class DatabaseClass {
 
-  private static Map<Long, Profile> idProfileMap = new HashMap<Long, Profile>();
+  private static Map<String, Profile> idProfileMap = new HashMap<String, Profile>();
   private static Map<Long, Message> idMessageMap = new HashMap<Long, Message>();
 
-  public static Map<Long, Profile> getIdProfileMap() {
+  public static Map<String, Profile> getIdProfileMap() {
     return idProfileMap;
   }
 
