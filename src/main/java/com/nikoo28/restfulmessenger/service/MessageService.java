@@ -3,9 +3,7 @@ package com.nikoo28.restfulmessenger.service;
 import com.nikoo28.restfulmessenger.database.DatabaseClass;
 import com.nikoo28.restfulmessenger.model.Message;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by nikoo28 on 11/20/17 2:40 AM
@@ -67,4 +65,49 @@ public class MessageService {
     return idMessageMap.remove(id);
   }
 
+  /**
+   * To access all the messages for a particular year
+   *
+   * @param year
+   * @return - list of all the messages
+   */
+  public List<Message> getMessagesForYear(int year) {
+
+    List<Message> messagesForYear = new ArrayList<Message>();
+
+    Calendar calendar = Calendar.getInstance();
+    for (Message message : idMessageMap.values()) {
+      calendar.setTime(message.getCreated());
+      if (calendar.get(Calendar.YEAR) == year)
+        messagesForYear.add(message);
+    }
+
+    return messagesForYear;
+  }
+
+  /**
+   * To support pagination; Get some messages from a starting point
+   * And return a list of messages specifying the size
+   *
+   * @param start - the beginning page
+   * @param size  - the length of page
+   * @return
+   */
+  public List<Message> getAllMessagesPaginated(int start, int size) {
+
+    List<Message> messageList = new ArrayList<Message>(idMessageMap.values());
+
+    // Validation
+    if (start + size > messageList.size())
+      return messageList;
+    return messageList.subList(start, start + size);
+  }
+
+  public List<Message> getAllPaginatedMessagesForYear(int year, int start, int size) {
+    List<Message> messagesForYear = getMessagesForYear(year);
+    if (start + size > messagesForYear.size())
+      return messagesForYear;
+
+    return messagesForYear.subList(start, start + size);
+  }
 }

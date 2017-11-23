@@ -20,7 +20,20 @@ public class MessageResource {
   @GET
   // Tells the response format
   @Produces(MediaType.APPLICATION_JSON)
-  public List<Message> getMessage() {
+  // Passing a query parameter to the GET request
+  public List<Message> getMessage(@QueryParam("year") int year,
+                                  @QueryParam("start") int start,
+                                  @QueryParam("size") int size) {
+
+    if (year > 0 && start >= 0 && size > 0)
+      return messageService.getAllPaginatedMessagesForYear(year, start, size);
+
+    if (year > 0)
+      return messageService.getMessagesForYear(year);
+
+    if (start >= 0 && size > 0)
+      return messageService.getAllMessagesPaginated(start, size);
+
     return messageService.getAllMessages();
   }
 
