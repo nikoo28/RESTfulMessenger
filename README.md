@@ -26,13 +26,14 @@ A basic REST API application for social messenger.
 
 #### GET
 ###### MESSAGE
-[http://localhost:8080/RESTfulMessenger/restapi/messages/](#)
 
+[http://localhost:8080/RESTfulMessenger/restapi/messages/](#)
 [http://localhost:8080/RESTfulMessenger/restapi/messages/{messageId}](#)
+[http://localhost:8080/RESTfulMessenger/restapi/messages?year={year}](#)
+[http://localhost:8080/RESTfulMessenger/restapi/messages?year={year}&start={startNumber}&size={pageSize}](#)
 
 ###### PROFILE
 [http://localhost:8080/RESTfulMessenger/restapi/profiles/](#)
-
 [http://localhost:8080/RESTfulMessenger/restapi/messages/{profileId}](#)
 
 ---
