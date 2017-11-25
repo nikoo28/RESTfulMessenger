@@ -21,22 +21,23 @@
     </build>
 
     <dependencies>
+
         <dependency>
             <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-bundle</artifactId>
-            <version>1.18.3</version>
+            <artifactId>jersey-server</artifactId>
+            <version>1.8</version>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet-core</artifactId>
-            <version>2.26</version>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>2.7</version>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>2.26</version>
+            <artifactId>jersey-media-multipart</artifactId>
+            <version>2.7</version>
         </dependency>
 
     </dependencies>
